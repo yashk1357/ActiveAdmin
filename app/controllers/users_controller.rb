@@ -13,7 +13,14 @@ class UsersController < ApplicationController
         render json: {meta: "error", data: @user.errors}, status: :not_found
     end
   end
-
+  def show 
+    @user = User.find(params[:id])
+    if @user
+      render json: {meta: "user found!", data:@user}, status: :ok
+    else
+      render json: {meta: "user not found!"}, status: :not_found
+    end
+  end
 
 private
 
