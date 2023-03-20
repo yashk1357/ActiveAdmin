@@ -15,8 +15,8 @@ class UsersController < ApplicationController
   end
   def show 
     @user = User.find(params[:id])
-    if @users
-      render json: {meta: "user found!", data:@users}, status: :ok
+    if @user
+      render json: {meta: "user found!", data:@user}, status: :ok
     else
       render json: {meta: "user not found!"}, status: :not_found
     end
